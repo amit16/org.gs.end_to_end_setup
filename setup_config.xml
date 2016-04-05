@@ -1,0 +1,96 @@
+<Config>
+	<ESXi>
+		<ipaddress>192.168.73.128</ipaddress>
+		<Username>root</Username>
+		<Password>cloudgs$123</Password>		
+	</ESXi>	
+	<vSwitch>
+        	<name1>vSwitch_lAN</name1>
+        	<name2>vSwitch_WAN</name2>
+    </vSwitch>
+    <portgroup>	
+		<br_lan>
+			<name>branh_lan_network</name>
+			<vlan_id>100</vlan_id>
+		</br_lan>
+			
+		<lan_trunk>
+			<name>branh_lan_trunk</name>
+			<vlan_id>4095</vlan_id>
+		</lan_trunk>
+		
+		<wan_trunk>
+			<name>wan_trunk</name>
+			<vlan_id>4095</vlan_id>
+		</wan_trunk>
+		
+		<br_wan>
+		    <name>branch_wan_network</name>
+			<vlan_id>150</vlan_id>
+		</br_wan>
+		
+		<br_WE>
+			<name>branch_to_WANEdge</name>
+			<vlan_id>200</vlan_id>
+		</br_WE>
+		
+		<WE_core>
+			<name>wanEdge_to_CoreRouter</name>
+			<vlan_id>300</vlan_id>
+		</WE_core>
+		
+		<hub_WE>
+			<name>hub_to_wanEdge</name>
+			<vlan_id>400</vlan_id>
+		</hub_WE>
+
+		<hub_Core>
+			<name>hub_to_CoreRouter</name>
+			<vlan_id>500</vlan_id>
+		</hub_Core>
+		
+		<core_server>
+			<name>coreRouter_to_Server</name>
+			<vlan_id>600</vlan_id>
+		</core_server>
+		
+		<internet>
+		    <name>VM Network</name>
+		</internet>
+	</portgroup>
+	
+	<VM>
+	    <client_lan>
+			<name>linux_client_lan</name>
+			<datastore>datastore1</datastore>
+			<isopath>[datastore1] ISO/CentOS-6.5-x86_64-minimal.iso</isopath>
+		</client_lan>
+		
+		<br_router>
+			<name>branch_router</name>
+			<datastore>datastore1</datastore>
+			<isopath>[datastore1] ISO/vyos-1.0.5-amd64.iso</isopath>
+			<configfilepath>E:\End_toEnd Setup\ps_scripts\branchrouter\config.boot</configfilepath>
+		</br_router>
+		
+		<WE_router>
+		    <name>wanEdge_router</name>
+			<datastore>datastore1</datastore>
+			<isopath>[datastore1] ISO/vyos-1.0.5-amd64.iso</isopath>
+			<configfilepath>E:\End_toEnd Setup\ps_scripts\wanedgerouter\config.boot</configfilepath>
+		</WE_router>
+		
+		<Core_router>
+			<name>core_router</name>
+			<datastore>datastore1</datastore>
+			<isopath>[datastore1] ISO/vyos-1.0.5-amd64.iso</isopath>
+			<configfilepath>E:\End_toEnd Setup\ps_scripts\corerouter\config.boot</configfilepath>
+		</Core_router>
+		
+		<server>
+			<name>server_machine</name>
+			<datastore>datastore1</datastore>
+			<isopath>[datastore1] ISO/CentOS-6.5-x86_64-minimal.iso</isopath>
+		</server>
+	</VM>
+</Config>
