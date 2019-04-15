@@ -1,8 +1,8 @@
 <Config>
 	<ESXi>
-		<ipaddress>192.168.73.128</ipaddress>
-		<Username>root</Username>
-		<Password>cloudgs$123</Password>		
+		<ipaddress></ipaddress>
+		<Username></Username>
+		<Password></Password>		
 	</ESXi>	
 	<vSwitch>
         	<name1>vSwitch_lAN</name1>
